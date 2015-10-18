@@ -1,0 +1,39 @@
+{
+  "name": "React-Parents-Child-Props-State",
+  "version": "1.0.0",
+  "description": "understand react with parents, children, props and state",
+  "main": "main.js",
+  "dependencies": {
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "browserify": "~6.2.0",
+    "envify": "~3.0.0",
+    "react": "^0.12.0",
+    "reactify": "^0.15",
+    "watchify": "~2.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "browserify -t babelify main.js -o bundle.js"
+    },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/niksolaz/React-Parents-Child-Props-State.git"
+  },
+  "keywords": [
+    "react",
+    "node.js"
+  ],
+  "author": "Nik Solaz <solazzo.nicola@gmail.com>",
+  "contributors": [
+    {
+      "name": "Nik Solaz",
+      "email": "solazzo.nicola@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/niksolaz/React-Parents-Child-Props-State/issues"
+  },
+  "homepage": "https://github.com/niksolaz/React-Parents-Child-Props-State"
+}
