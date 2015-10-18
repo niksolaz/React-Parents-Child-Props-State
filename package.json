@@ -13,8 +13,9 @@
     "watchify": "~2.1.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "browserify -t babelify main.js -o bundle.js"
+    "test": "main.js",
+    "start": "browserify -t babelify main.js -o bundle.js",
+    "build": "browserify . | uglifyjs -cm > bundle.min.js"
     },
   "repository": {
     "type": "git",
