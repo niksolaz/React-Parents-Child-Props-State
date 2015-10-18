@@ -7,5 +7,5 @@ var ReactDOM = require('react-dom');
 
 ReactDOM.render(
   <h1>Welcome on the tutorial React!</h1>, // this appear in index.html from <div>
-  document.getElementById('example') // 'example' is id from <div> in index.html
+  document.getElementById('myID') // 'myID' is id from <div> in index.html
 );
