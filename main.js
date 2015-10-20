@@ -1,11 +1,16 @@
-/*
-Create basic template Main.js 
-*/
-//Call dependencies
-var React = require('react');          
-var ReactDOM = require('react-dom');
+"use strict";
 
-ReactDOM.render(
-  <h1>Welcome on the tutorial React!</h1>, // this appear in index.html from <div>
-  document.getElementById('myID') // 'myID' is id from <div> in index.html
-);
+var HelloMessage = React.createClass({
+  displayName: "HelloMessage",
+
+  render: function render() {
+    return React.createElement(
+      "div",
+      null,
+      "Hello ",
+      this.props.name
+    );
+  }
+});
+
+ReactDOM.render(React.createElement(HelloMessage, { name: "John" }), document.getElementById("myID"));
