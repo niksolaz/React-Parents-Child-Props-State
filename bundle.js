@@ -6,9 +6,30 @@ var WelcomeMessage = React.createClass({
 
   render: function render() {
     return React.createElement(
-      "h1",
+      "div",
       { className: "welcomeMessage" },
-      "Welcome on the tutorial React: Parents Child Props State"
+      React.createElement(
+        "h1",
+        null,
+        "Welcome on the tutorial React by Nik Solaz"
+      ),
+      React.createElement(PropsMessage, null)
+    );
+  }
+});
+
+var PropsMessage = React.createClass({
+  displayName: "PropsMessage",
+
+  render: function render() {
+    return React.createElement(
+      "div",
+      { className: "propsMessage" },
+      React.createElement(
+        "li",
+        null,
+        "Props"
+      )
     );
   }
 });
