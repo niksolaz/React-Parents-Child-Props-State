@@ -22,6 +22,11 @@ var WelcomeMessage = React.createClass({
 				"li",
 				null,
 				React.createElement(StatesMessage, null)
+			),
+			React.createElement(
+				"li",
+				null,
+				React.createElement(ParentsMessage, null)
 			)
 		);
 	}
@@ -47,6 +52,18 @@ var StatesMessage = React.createClass({
 			"div",
 			{ className: "statesMessage" },
 			"State"
+		);
+	}
+});
+
+var ParentsMessage = React.createClass({
+	displayName: "ParentsMessage",
+
+	render: function render() {
+		return React.createElement(
+			"div",
+			{ className: "parentsMessage" },
+			"Parents"
 		);
 	}
 });
