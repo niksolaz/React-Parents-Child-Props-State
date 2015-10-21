@@ -11,6 +11,7 @@ var WelcomeMessage = React.createClass({
 			    	<li><PropsMessage /></li>
 			    	<li><StatesMessage /></li>
 			    	<li><ParentsMessage /></li>
+			    	<li><ChildrensMessage /></li>
 	    	</div>
     	 );
   }
@@ -44,6 +45,17 @@ var ParentsMessage = React.createClass({
 		return (
 			<div className="parentsMessage">
 				Parents
+			</div>
+		);
+	}
+});
+
+var ChildrensMessage = React.createClass({
+
+	render: function(){
+		return (
+			<div className="childrensMessage">
+				Childrens
 			</div>
 		);
 	}
