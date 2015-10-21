@@ -12,4 +12,4 @@ var WelcomeMessage = React.createClass({
   }
 });
 
-ReactDOM.render(<welcomeMessage />, document.getElementById("myID"));
+ReactDOM.render(<welcomeMessage />, document.getElementById("myMessageID"));

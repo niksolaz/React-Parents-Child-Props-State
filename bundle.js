@@ -9,6 +9,6 @@ var WelcomeMessage = React.createClass({
   }
 });
 
-ReactDOM.render(React.createElement("welcomeMessage", null), document.getElementById("myID"));
+ReactDOM.render(React.createElement("welcomeMessage", null), document.getElementById("myMessageID"));
 
 },{}]},{},[1]);
