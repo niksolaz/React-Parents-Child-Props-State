@@ -5,10 +5,14 @@ var WelcomeMessage = React.createClass({
   displayName: "WelcomeMessage",
 
   render: function render() {
-    return React.createElement("h1", null, "Welcome on Tutorial");
+    return React.createElement(
+      "h1",
+      { className: "welcomeMessage" },
+      "Welcome on the tutorial React: Parents Child Props State"
+    );
   }
 });
 
-ReactDOM.render(React.createElement("welcomeMessage", null), document.getElementById("myMessageID"));
+ReactDOM.render(React.createElement(WelcomeMessage, null), document.getElementById("myMessageID"));
 
 },{}]},{},[1]);

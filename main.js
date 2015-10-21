@@ -1,15 +1,17 @@
 "use strict";
 
 var WelcomeMessage = React.createClass({
-  displayName: "WelcomeMessage",
-
+  
   render: function () {
-    return React.createElement(
-      "h1",
-      null,
-      "Welcome on Tutorial"
-    );
+    return (
+    	<h1 className="welcomeMessage">
+    	Welcome on the tutorial React: Parents Child Props State
+    	</h1>
+    	 );
   }
 });
 
-ReactDOM.render(<welcomeMessage />, document.getElementById("myMessageID"));
+ReactDOM.render(
+	<WelcomeMessage />, 
+	document.getElementById("myMessageID")
+	);
