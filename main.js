@@ -4,12 +4,13 @@ var WelcomeMessage = React.createClass({
   
   render: function() {
     return (
-    	<div className="welcomeMessage">
-    	<h1>
-    	Welcome on the tutorial React by Nik Solaz
-    	</h1>
-    	<PropsMessage />
-    	</div>
+	    	<div className="welcomeMessage">
+		    	<h1>
+		    	Welcome on the tutorial React by Nik Solaz
+		    	</h1>    	
+			    	<li><PropsMessage /></li>
+			    	<li><StatesMessage /></li>
+	    	</div>
     	 );
   }
 });
@@ -19,7 +20,18 @@ var PropsMessage = React.createClass({
 	render: function(){
 		return (
 			<div className="propsMessage">
-				<li>Props</li>
+				Props
+			</div>
+		);
+	}
+});
+
+var StatesMessage = React.createClass({
+
+	render: function(){
+		return (
+			<div className="statesMessage">
+				State
 			</div>
 		);
 	}

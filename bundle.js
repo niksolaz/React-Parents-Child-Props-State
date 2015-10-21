@@ -2,36 +2,53 @@
 "use strict";
 
 var WelcomeMessage = React.createClass({
-  displayName: "WelcomeMessage",
+	displayName: "WelcomeMessage",
 
-  render: function render() {
-    return React.createElement(
-      "div",
-      { className: "welcomeMessage" },
-      React.createElement(
-        "h1",
-        null,
-        "Welcome on the tutorial React by Nik Solaz"
-      ),
-      React.createElement(PropsMessage, null)
-    );
-  }
+	render: function render() {
+		return React.createElement(
+			"div",
+			{ className: "welcomeMessage" },
+			React.createElement(
+				"h1",
+				null,
+				"Welcome on the tutorial React by Nik Solaz"
+			),
+			React.createElement(
+				"li",
+				null,
+				React.createElement(PropsMessage, null)
+			),
+			React.createElement(
+				"li",
+				null,
+				React.createElement(StatesMessage, null)
+			)
+		);
+	}
 });
 
 var PropsMessage = React.createClass({
-  displayName: "PropsMessage",
+	displayName: "PropsMessage",
 
-  render: function render() {
-    return React.createElement(
-      "div",
-      { className: "propsMessage" },
-      React.createElement(
-        "li",
-        null,
-        "Props"
-      )
-    );
-  }
+	render: function render() {
+		return React.createElement(
+			"div",
+			{ className: "propsMessage" },
+			"Props"
+		);
+	}
+});
+
+var StatesMessage = React.createClass({
+	displayName: "StatesMessage",
+
+	render: function render() {
+		return React.createElement(
+			"div",
+			{ className: "statesMessage" },
+			"State"
+		);
+	}
 });
 
 ReactDOM.render(React.createElement(WelcomeMessage, null), document.getElementById("myMessageID"));
