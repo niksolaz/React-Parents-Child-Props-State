@@ -32,7 +32,8 @@ var WelcomeMessage = React.createClass({
 				"li",
 				null,
 				React.createElement(ChildrensMessage, null)
-			)
+			),
+			React.createElement(CommentList, null)
 		);
 	}
 });
@@ -81,6 +82,44 @@ var ChildrensMessage = React.createClass({
 			"div",
 			{ className: "childrensMessage" },
 			"Childrens"
+		);
+	}
+});
+
+var Comment = React.createClass({
+	displayName: "Comment",
+
+	render: function render() {
+		return React.createElement(
+			"div",
+			{ className: "comment" },
+			React.createElement(
+				"h2",
+				{ className: "commentAuthor" },
+				this.props.author
+			),
+			this.props.children
+		);
+	}
+});
+
+var CommentList = React.createClass({
+	displayName: "CommentList",
+
+	render: function render() {
+		return React.createElement(
+			"div",
+			{ className: "commentList" },
+			React.createElement(
+				Comment,
+				{ author: "Pete Hunt" },
+				"This is one comment using \"this.props.author\""
+			),
+			React.createElement(
+				Comment,
+				{ author: "Jordan Walke" },
+				"This is *another* comment using \"this.props.children\""
+			)
 		);
 	}
 });
