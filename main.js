@@ -5,6 +5,7 @@ var WelcomeMessage = React.createClass({
   render: function() {
     return (
 	    	<div className="welcomeMessage">
+	    		<section>
 		    	<h1>
 		    	Welcome on the tutorial React by Nik Solaz
 		    	</h1>    	
@@ -13,6 +14,10 @@ var WelcomeMessage = React.createClass({
 			    	<li><ParentsMessage /></li>
 			    	<li><ChildrensMessage /></li>
 			    <CommentList />
+			    </section>
+			    <section>
+			    	<MainList />
+			    </section>
 	    	</div>
     	 );
   }
@@ -87,6 +92,34 @@ var CommentList = React.createClass({
       </section>
     );
   }
+});
+
+var MainList =  React.createClass({
+	render: function(){
+		return (
+			<section className="mainList">
+				<ul>
+					<li><UnderList food="Coffee"/></li>
+					<li><UnderList food="Tea"/></li>
+					<li><UnderList food="Milk"/></li>
+				</ul>
+			</section>
+		);
+	}
+});
+
+var UnderList =  React.createClass({
+	render: function(){
+		return (
+			<div className="underList">
+				
+				  <p className="commentFood">{this.props.food}</p>
+				  <p>{this.props.children}</p>
+				  <p>{this.props.children}</p>
+				
+			</div>
+		);
+	}
 });
 
 ReactDOM.render(

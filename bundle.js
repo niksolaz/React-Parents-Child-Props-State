@@ -9,31 +9,40 @@ var WelcomeMessage = React.createClass({
 			"div",
 			{ className: "welcomeMessage" },
 			React.createElement(
-				"h1",
+				"section",
 				null,
-				"Welcome on the tutorial React by Nik Solaz"
+				React.createElement(
+					"h1",
+					null,
+					"Welcome on the tutorial React by Nik Solaz"
+				),
+				React.createElement(
+					"li",
+					null,
+					React.createElement(PropsMessage, null)
+				),
+				React.createElement(
+					"li",
+					null,
+					React.createElement(StatesMessage, null)
+				),
+				React.createElement(
+					"li",
+					null,
+					React.createElement(ParentsMessage, null)
+				),
+				React.createElement(
+					"li",
+					null,
+					React.createElement(ChildrensMessage, null)
+				),
+				React.createElement(CommentList, null)
 			),
 			React.createElement(
-				"li",
+				"section",
 				null,
-				React.createElement(PropsMessage, null)
-			),
-			React.createElement(
-				"li",
-				null,
-				React.createElement(StatesMessage, null)
-			),
-			React.createElement(
-				"li",
-				null,
-				React.createElement(ParentsMessage, null)
-			),
-			React.createElement(
-				"li",
-				null,
-				React.createElement(ChildrensMessage, null)
-			),
-			React.createElement(CommentList, null)
+				React.createElement(MainList, null)
+			)
 		);
 	}
 });
@@ -129,6 +138,62 @@ var CommentList = React.createClass({
 				"p",
 				null,
 				"With children recall the \"author's name\" with another name"
+			)
+		);
+	}
+});
+
+var MainList = React.createClass({
+	displayName: "MainList",
+
+	render: function render() {
+		return React.createElement(
+			"section",
+			{ className: "mainList" },
+			React.createElement(
+				"ul",
+				null,
+				React.createElement(
+					"li",
+					null,
+					React.createElement(UnderList, { food: "Coffee" })
+				),
+				React.createElement(
+					"li",
+					null,
+					React.createElement(UnderList, { food: "Tea" })
+				),
+				React.createElement(
+					"li",
+					null,
+					React.createElement(UnderList, { food: "Milk" })
+				)
+			)
+		);
+	}
+});
+
+var UnderList = React.createClass({
+	displayName: "UnderList",
+
+	render: function render() {
+		return React.createElement(
+			"div",
+			{ className: "underList" },
+			React.createElement(
+				"p",
+				{ className: "commentFood" },
+				this.props.food
+			),
+			React.createElement(
+				"p",
+				null,
+				this.props.children
+			),
+			React.createElement(
+				"p",
+				null,
+				this.props.children
 			)
 		);
 	}
