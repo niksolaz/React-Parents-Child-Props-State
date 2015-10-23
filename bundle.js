@@ -108,17 +108,27 @@ var CommentList = React.createClass({
 
 	render: function render() {
 		return React.createElement(
-			"div",
+			"section",
 			{ className: "commentList" },
 			React.createElement(
 				Comment,
-				{ author: "Pete Hunt" },
+				{ author: "Props Author" },
 				"This is one comment using \"this.props.author\""
 			),
 			React.createElement(
+				"p",
+				null,
+				"The author is a value property. We have associated in this case the value Props, how could we give Author any other name"
+			),
+			React.createElement(
 				Comment,
-				{ author: "Jordan Walke" },
+				{ author: "Props Children" },
 				"This is *another* comment using \"this.props.children\""
+			),
+			React.createElement(
+				"p",
+				null,
+				"With children recall the \"author's name\" with another name"
 			)
 		);
 	}

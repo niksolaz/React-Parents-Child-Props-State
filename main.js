@@ -71,6 +71,7 @@ var Comment = React.createClass({
         </h2>
         {this.props.children}
       </div>
+
     );
   }
 });
@@ -78,10 +79,12 @@ var Comment = React.createClass({
 var CommentList = React.createClass({
   render: function() {
     return (
-      <div className="commentList">
-        <Comment author="Pete Hunt">This is one comment using "this.props.author"</Comment>
-        <Comment author="Jordan Walke">This is *another* comment using "this.props.children"</Comment>
-      </div>
+      <section className="commentList">
+        <Comment author="Props Author">This is one comment using "this.props.author"</Comment>
+        <p>The author is a value property. We have associated in this case the value Props, how could we give Author any other name</p>
+        <Comment author="Props Children">This is *another* comment using "this.props.children"</Comment>
+        <p>With children recall the "author's name" with another name</p>
+      </section>
     );
   }
 });
