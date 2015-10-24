@@ -98,11 +98,11 @@ var MainList =  React.createClass({
 	render: function(){
 		return (
 			<section className="mainList">
-				<ul>
-					<li><UnderList food="Coffee"/></li>
-					<li><UnderList food="Tea"/></li>
-					<li><UnderList food="Milk"/></li>
-				</ul>
+				
+					<UnderList food="Coffee"/>
+					<UnderList food="Tea"/>
+					<UnderList food="Milk"/>
+				
 			</section>
 		);
 	}
@@ -114,8 +114,8 @@ var UnderList =  React.createClass({
 			<div className="underList">
 				
 				  <p className="commentFood">{this.props.food}</p>
-				  <p>{this.props.children}</p>
-				  <p>{this.props.children}</p>
+				  {this.props.children}
+				  {this.props.children}
 				
 			</div>
 		);

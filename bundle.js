@@ -150,25 +150,9 @@ var MainList = React.createClass({
 		return React.createElement(
 			"section",
 			{ className: "mainList" },
-			React.createElement(
-				"ul",
-				null,
-				React.createElement(
-					"li",
-					null,
-					React.createElement(UnderList, { food: "Coffee" })
-				),
-				React.createElement(
-					"li",
-					null,
-					React.createElement(UnderList, { food: "Tea" })
-				),
-				React.createElement(
-					"li",
-					null,
-					React.createElement(UnderList, { food: "Milk" })
-				)
-			)
+			React.createElement(UnderList, { food: "Coffee" }),
+			React.createElement(UnderList, { food: "Tea" }),
+			React.createElement(UnderList, { food: "Milk" })
 		);
 	}
 });
@@ -185,16 +169,8 @@ var UnderList = React.createClass({
 				{ className: "commentFood" },
 				this.props.food
 			),
-			React.createElement(
-				"p",
-				null,
-				this.props.children
-			),
-			React.createElement(
-				"p",
-				null,
-				this.props.children
-			)
+			this.props.children,
+			this.props.children
 		);
 	}
 });
