@@ -2,21 +2,8 @@ body
 {
 	background-color : #2c3e50;
 }
-
-h1
+div
 {
-	color : white;
 	text-align: center;
-}
-
-li
-{
-	color : white;
-	text-align: center;
-}
-
-section
-{
-	color : white;
-	text-align: center;
+	color: white;
 }
