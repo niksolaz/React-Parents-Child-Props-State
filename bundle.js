@@ -56,6 +56,10 @@ var CommentForm = React.createClass({
 var Comment = React.createClass({
 	displayName: "Comment",
 
+	rawMarkup: function rawMarkup() {
+		var rawMarkup = marked(this.props.children.toString(), { sanitize: true });
+		return { __html: rawMarkup };
+	},
 	render: function render() {
 		return React.createElement(
 			"div",
@@ -65,7 +69,7 @@ var Comment = React.createClass({
 				{ className: "commentAuthor" },
 				this.props.author
 			),
-			this.props.children
+			React.createElement("span", { dangerouslySetInnerHTML: this.rawMarkup() })
 		);
 	}
 });
