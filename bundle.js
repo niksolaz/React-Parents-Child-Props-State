@@ -79,7 +79,7 @@ var Comment = React.createClass({
 	}
 });
 
-var data = [{ author: "Pete Hunt", text: "This is one comment" }, { author: "Jordan Walke", text: "This is *another* comment" }];
+var data = [{ author: "First Comment", text: "This is one comment" }, { author: "Second Comment", text: "This is second comment" }, { author: "....", text: "....." }, { author: "Another Comment", text: "This is *another* comment" }];
 
 //rederize Main Component "CommentBox"
 ReactDOM.render(React.createElement(CommentBox, { data: data }), document.getElementById("myContent"));

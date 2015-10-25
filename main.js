@@ -31,6 +31,7 @@ var CommentList = React.createClass({
 		});
 		return (
 			<div className="commentList">
+				CommentList
 		        {commentNodes}
 		    </div>
 		);
@@ -68,8 +69,10 @@ var Comment = React.createClass({
 });
 
 var data = [
-	{author: "Pete Hunt", text: "This is one comment"},
-	{author: "Jordan Walke", text: "This is *another* comment"}
+	{author: "First Comment", text: "This is one comment"},
+	{author: "Second Comment", text: "This is second comment"},
+	{author: "....", text: "....."},
+	{author: "Another Comment", text: "This is *another* comment"}
 ];
 
 //rederize Main Component "CommentBox"

@@ -1,6 +1,11 @@
 body
-{
+{	
 	background-color : #99ffff;
+}
+
+h1,body
+{
+	text-align: center;
 }
 
 div
@@ -21,7 +26,8 @@ div
 {
 	background-color:#00FF66;
 	color:#0000cc;
-	width: 200px;
+	height:80px;
+	width: 300px;
     padding: 10px;
     border: 2px solid black;
     margin: 25px;
