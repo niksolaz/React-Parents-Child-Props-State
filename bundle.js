@@ -39,6 +39,7 @@ var CommentList = React.createClass({
 		return React.createElement(
 			"div",
 			{ className: "commentList" },
+			"CommentList",
 			commentNodes
 		);
 	}
