@@ -1,9 +1,51 @@
 body
 {
-	background-color : #2c3e50;
+	background-color : #99ffff;
 }
+
 div
 {
 	text-align: center;
-	color: white;
+	background-color: white;
+}
+.commentBox
+{
+	background-color: silver;
+	width: 200px;
+    padding: 10px;
+    border: 2px solid black;
+    margin: 25px;
+	border-radius: 2em;
+}
+.comment
+{
+	background-color:#00FF66;
+	color:#0000cc;
+	width: 200px;
+    padding: 10px;
+    border: 2px solid black;
+    margin: 25px;
+	border-radius: 2em;
+}
+
+.commentList
+{
+	background-color:#99ffff;
+	color:#cc3333;
+	width: 200px;
+    padding: 10px;
+    border: 2px solid black;
+    margin: 25px;
+	border-radius: 2em;
+}
+
+.commentForm
+{
+	background-color:#99ffff;
+	color:#cc3333;
+	width: 200px;
+    padding: 10px;
+    border: 2px solid black;
+    margin: 25px;
+	border-radius: 2em;
 }

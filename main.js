@@ -14,25 +14,42 @@ var CommentBox = React.createClass({
 });
 
 var CommentList = React.createClass({
+
 	render: function(){
 		return (
 			<div className="commentList">
-				This is a component CommentList
+				CommentList
+				<Comment author="John Doe">This is one comment</Comment>
+				<Comment author="Mario Rossi">This is *another* comment</Comment>
 			</div>
 		);
 	}
 });
 
 var CommentForm = React.createClass({
+
 	render: function(){
 		return (
 			<div className="commentForm">
-				This is a component CommentForm
+				CommentForm
 			</div>
 		);
 	}
 });
 
+var Comment = React.createClass({
+
+	render: function(){
+		return (
+			<div className="comment">
+				<h2 className="commentAuthor">
+					{this.props.author}
+				</h2>
+				{this.props.children}
+			</div>
+		);
+	}
+});
 ReactDOM.render(
 	<CommentBox />, 
 	document.getElementById("myContent")

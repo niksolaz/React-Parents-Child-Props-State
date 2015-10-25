@@ -26,7 +26,17 @@ var CommentList = React.createClass({
 		return React.createElement(
 			"div",
 			{ className: "commentList" },
-			"This is a component CommentList"
+			"CommentList",
+			React.createElement(
+				Comment,
+				{ author: "John Doe" },
+				"This is one comment"
+			),
+			React.createElement(
+				Comment,
+				{ author: "Mario Rossi" },
+				"This is *another* comment"
+			)
 		);
 	}
 });
@@ -38,11 +48,27 @@ var CommentForm = React.createClass({
 		return React.createElement(
 			"div",
 			{ className: "commentForm" },
-			"This is a component CommentForm"
+			"CommentForm"
 		);
 	}
 });
 
+var Comment = React.createClass({
+	displayName: "Comment",
+
+	render: function render() {
+		return React.createElement(
+			"div",
+			{ className: "comment" },
+			React.createElement(
+				"h2",
+				{ className: "commentAuthor" },
+				this.props.author
+			),
+			this.props.children
+		);
+	}
+});
 ReactDOM.render(React.createElement(CommentBox, null), document.getElementById("myContent"));
 
 },{}]},{},[1]);
