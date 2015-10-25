@@ -2,15 +2,45 @@
 "use strict";
 
 var CommentBox = React.createClass({
-		displayName: "CommentBox",
+	displayName: "CommentBox",
 
-		render: function render() {
-				return React.createElement(
-						"div",
-						{ className: "commentBox" },
-						"This is a Comment Box"
-				);
-		}
+	render: function render() {
+		return React.createElement(
+			"div",
+			{ className: "commentBox" },
+			React.createElement(
+				"h1",
+				null,
+				"Comments"
+			),
+			React.createElement(CommentList, null),
+			React.createElement(CommentForm, null)
+		);
+	}
+});
+
+var CommentList = React.createClass({
+	displayName: "CommentList",
+
+	render: function render() {
+		return React.createElement(
+			"div",
+			{ className: "commentList" },
+			"This is a component CommentList"
+		);
+	}
+});
+
+var CommentForm = React.createClass({
+	displayName: "CommentForm",
+
+	render: function render() {
+		return React.createElement(
+			"div",
+			{ className: "commentForm" },
+			"This is a component CommentForm"
+		);
+	}
 });
 
 ReactDOM.render(React.createElement(CommentBox, null), document.getElementById("myContent"));
