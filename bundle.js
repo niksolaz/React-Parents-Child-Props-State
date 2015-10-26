@@ -109,7 +109,7 @@ var CommentForm = React.createClass({
 			{ className: 'commentForm', onSubmit: this.handleSubmit },
 			'CommentForm',
 			React.createElement('input', { type: 'text', placeholder: 'Your name', ref: 'author' }),
-			React.createElement('input', { type: 'text', placeholder: 'Say something...', ref: 'text' }),
+			React.createElement('textarea', { type: 'text', placeholder: 'Say something...', ref: 'text' }),
 			React.createElement('input', { type: 'submit', value: 'Post' })
 		);
 	}
@@ -129,7 +129,7 @@ var Comment = React.createClass({
 			'div',
 			{ className: 'comment' },
 			React.createElement(
-				'h2',
+				'h4',
 				{ className: 'commentAuthor' },
 				this.props.author
 			),

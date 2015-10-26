@@ -25,9 +25,7 @@ div
 .comment
 {
 	background-color:#00FF66;
-	color:#0000cc;
-	height:80px;
-	width: 300px;
+	color:#000000;
     padding: 10px;
     border: 2px solid black;
     margin: 25px;

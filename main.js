@@ -65,9 +65,11 @@ var CommentList = React.createClass({
 	render: function(){
 		var commentNodes = this.props.data.map(function(comment){
 			return(
+				
 				<Comment author={comment.author}>
 					{comment.text}
 				</Comment>
+
 			);
 		});
 		return (
@@ -100,7 +102,7 @@ var CommentForm = React.createClass({
 			<form className="commentForm" onSubmit={this.handleSubmit}>
 				CommentForm
 				<input type="text" placeholder="Your name" ref="author"/>
-				<input type="text" placeholder="Say something..." ref="text"/>
+				<textarea type="text" placeholder="Say something..." ref="text"/>
 				<input type="submit" value="Post"/>
 			</form>
 		);
@@ -117,9 +119,9 @@ var Comment = React.createClass({
 		//using propieties author and markup
 		return (
 			<div className="comment">
-				<h2 className="commentAuthor">
+				<h4 className="commentAuthor">
 					{this.props.author}
-				</h2>
+				</h4>
 				<span dangerouslySetInnerHTML={this.rawMarkup()} />
 			</div>
 		);
