@@ -7,13 +7,31 @@
         - CommentForm
 */
 var CommentBox = React.createClass({
-	displayName: "CommentBox",
+	displayName: 'CommentBox',
 
 	loadCommentsFromServer: function loadCommentsFromServer() {
 		$.ajax({
 			url: this.props.url,
 			dataType: 'json',
 			cache: false,
+			success: (function (data) {
+				this.setState({ data: data });
+			}).bind(this),
+			error: (function (xhr, status, err) {
+				console.error(this.props.url, status, err.toString());
+			}).bind(this)
+		});
+	},
+
+	handleCommentSubmit: function handleCommentSubmit(comment) {
+		var comments = this.state.data;
+		var newComments = comments.concat([comment]);
+		this.setState({ data: newComments });
+		$.ajax({
+			url: this.props.url,
+			dataType: 'json',
+			type: 'POST',
+			data: comment,
 			success: (function (data) {
 				this.setState({ data: data });
 			}).bind(this),
@@ -35,21 +53,21 @@ var CommentBox = React.createClass({
 	render: function render() {
 		//add component CommentList and CommentBox
 		return React.createElement(
-			"div",
-			{ className: "commentBox" },
+			'div',
+			{ className: 'commentBox' },
 			React.createElement(
-				"h1",
+				'h1',
 				null,
-				"Comments"
+				'Comments'
 			),
 			React.createElement(CommentList, { data: this.state.data }),
-			React.createElement(CommentForm, null)
+			React.createElement(CommentForm, { onCommentSubmit: this.handleCommentSubmit })
 		);
 	}
 });
 
 var CommentList = React.createClass({
-	displayName: "CommentList",
+	displayName: 'CommentList',
 
 	render: function render() {
 		var commentNodes = this.props.data.map(function (comment) {
@@ -60,16 +78,16 @@ var CommentList = React.createClass({
 			);
 		});
 		return React.createElement(
-			"div",
-			{ className: "commentList" },
-			"CommentList",
+			'div',
+			{ className: 'commentList' },
+			'CommentList',
 			commentNodes
 		);
 	}
 });
 
 var CommentForm = React.createClass({
-	displayName: "CommentForm",
+	displayName: 'CommentForm',
 
 	handleSubmit: function handleSubmit(e) {
 		e.preventDefault();
@@ -79,6 +97,7 @@ var CommentForm = React.createClass({
 			return;
 		}
 		//TODO: send request to the server
+		this.props.onCommentSubmit({ author: author, text: text });
 		this.refs.author.value = '';
 		this.refs.text.value = '';
 		return;
@@ -86,18 +105,18 @@ var CommentForm = React.createClass({
 
 	render: function render() {
 		return React.createElement(
-			"form",
-			{ className: "commentForm", onSubmit: this.handleSubmit },
-			"CommentForm",
-			React.createElement("input", { type: "text", placeholder: "Your name", ref: "author" }),
-			React.createElement("input", { type: "text", placeholder: "Say something...", ref: "text" }),
-			React.createElement("input", { type: "submit", value: "Post" })
+			'form',
+			{ className: 'commentForm', onSubmit: this.handleSubmit },
+			'CommentForm',
+			React.createElement('input', { type: 'text', placeholder: 'Your name', ref: 'author' }),
+			React.createElement('input', { type: 'text', placeholder: 'Say something...', ref: 'text' }),
+			React.createElement('input', { type: 'submit', value: 'Post' })
 		);
 	}
 });
 
 var Comment = React.createClass({
-	displayName: "Comment",
+	displayName: 'Comment',
 
 	//protect from an XSS attack
 	rawMarkup: function rawMarkup() {
@@ -107,14 +126,14 @@ var Comment = React.createClass({
 	render: function render() {
 		//using propieties author and markup
 		return React.createElement(
-			"div",
-			{ className: "comment" },
+			'div',
+			{ className: 'comment' },
 			React.createElement(
-				"h2",
-				{ className: "commentAuthor" },
+				'h2',
+				{ className: 'commentAuthor' },
 				this.props.author
 			),
-			React.createElement("span", { dangerouslySetInnerHTML: this.rawMarkup() })
+			React.createElement('span', { dangerouslySetInnerHTML: this.rawMarkup() })
 		);
 	}
 });
@@ -122,6 +141,6 @@ var Comment = React.createClass({
 var data = [{ author: "First Comment", text: "This is one comment" }, { author: "Another Comment", text: "This is *another* comment" }];
 
 //rederize Main Component "CommentBox"
-ReactDOM.render(React.createElement(CommentBox, { url: "/api/comments", pollInterval: 2000 }), document.getElementById("myContent"));
+ReactDOM.render(React.createElement(CommentBox, { url: '/api/comments', pollInterval: 2000 }), document.getElementById("myContent"));
 
 },{}]},{},[1]);
