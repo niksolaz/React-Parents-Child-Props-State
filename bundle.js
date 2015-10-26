@@ -9,6 +9,29 @@
 var CommentBox = React.createClass({
 	displayName: "CommentBox",
 
+	loadCommentsFromServer: function loadCommentsFromServer() {
+		$.ajax({
+			url: this.props.url,
+			dataType: 'json',
+			cache: false,
+			success: (function (data) {
+				this.setState({ data: data });
+			}).bind(this),
+			error: (function (xhr, status, err) {
+				console.error(this.props.url, status, err.toString());
+			}).bind(this)
+		});
+	},
+
+	getInitialState: function getInitialState() {
+		return { data: [] };
+	},
+
+	componentDidMount: function componentDidMount() {
+		this.loadCommentsFromServer();
+		setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+	},
+
 	render: function render() {
 		//add component CommentList and CommentBox
 		return React.createElement(
@@ -19,7 +42,7 @@ var CommentBox = React.createClass({
 				null,
 				"Comments"
 			),
-			React.createElement(CommentList, { data: this.props.data }),
+			React.createElement(CommentList, { data: this.state.data }),
 			React.createElement(CommentForm, null)
 		);
 	}
@@ -80,9 +103,9 @@ var Comment = React.createClass({
 	}
 });
 
-var data = [{ author: "First Comment", text: "This is one comment" }, { author: "Second Comment", text: "This is second comment" }, { author: "....", text: "....." }, { author: "Another Comment", text: "This is *another* comment" }];
+var data = [{ author: "First Comment", text: "This is one comment" }, { author: "Another Comment", text: "This is *another* comment" }];
 
 //rederize Main Component "CommentBox"
-ReactDOM.render(React.createElement(CommentBox, { data: data }), document.getElementById("myContent"));
+ReactDOM.render(React.createElement(CommentBox, { url: "/api/comments", pollInterval: 2000 }), document.getElementById("myContent"));
 
 },{}]},{},[1]);

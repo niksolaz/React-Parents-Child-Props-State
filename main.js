@@ -6,17 +6,40 @@
         - CommentForm
 */
 var CommentBox = React.createClass({
+
+	loadCommentsFromServer: function(){
+		$.ajax({
+			url:this.props.url,
+			dataType:'json',
+			cache:false,
+			success:function(data){
+				this.setState({data:data});
+			}.bind(this),
+			error: function(xhr,status,err){
+				console.error(this.props.url,status,err.toString());
+			}.bind(this)
+		});
+	},
+
+	getInitialState: function(){
+		return {data:[]};
+	},
+
+	componentDidMount: function(){
+		this.loadCommentsFromServer();
+    	setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+	},
   
-  render: function() {
+    render: function() {
   	//add component CommentList and CommentBox
-    return (
-		<div className="commentBox">
-			<h1>Comments</h1>
-			<CommentList data={this.props.data}/>
-			<CommentForm />
-		</div>    	
-    );
-  }
+        return (
+			<div className="commentBox">
+				<h1>Comments</h1>
+				<CommentList data={this.state.data}/>
+				<CommentForm />
+			</div>    	
+        );
+    }
 });
 
 var CommentList = React.createClass({
@@ -42,9 +65,12 @@ var CommentForm = React.createClass({
 
 	render: function(){
 		return (
-			<div className="commentForm">
+			<form className="commentForm">
 				CommentForm
-			</div>
+				<input type="text" placeholder="Your name"/>
+				<input type="text" placeholder="Say something..."/>
+				<input type="submit" value="Post"/>
+			</form>
 		);
 	}
 });
@@ -70,13 +96,11 @@ var Comment = React.createClass({
 
 var data = [
 	{author: "First Comment", text: "This is one comment"},
-	{author: "Second Comment", text: "This is second comment"},
-	{author: "....", text: "....."},
 	{author: "Another Comment", text: "This is *another* comment"}
 ];
 
 //rederize Main Component "CommentBox"
 ReactDOM.render(
-	<CommentBox data={data}/>, 
+	<CommentBox url="/api/comments" pollInterval={2000}/>, 
 	document.getElementById("myContent")
 	);
