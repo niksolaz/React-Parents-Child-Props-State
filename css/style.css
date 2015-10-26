@@ -24,12 +24,13 @@ div
 }
 .comment
 {
-	background-color:#00FF66;
-	color:#000000;
-    padding: 10px;
+	background-color:#D8D8D8;
+	color:#0000cc;
+    box-shadow: 10px 10px 5px;
+    padding: 5px;
     border: 2px solid black;
-    margin: 25px;
-	border-radius: 2em;
+    margin: 15px;
+	border-radius: 1em;
 }
 
 .commentList
